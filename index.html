@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Random Password Generator</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+   <script src="script.js"></script>
+    <div class="main">
+        <div class="box">
+            <input type="text"id="pass-box" placeholder="Testing">
+            <div class="row">
+                <div class="left">
+                    Password Length
+                </div>
+                <div class="right">
+<input type="number" name="" id="total-char" max="30" min="2" value="10" />
+                </div>
+            </div>
+            <div class="row">
+                <label for="upper-case">
+                    <div class="left">
+                       Contains Uppercase
+                    </div>
+                </label><div class="right">
+                    <input type="checkbox" name="" id="upper-case"/>
+                </div>
+            </div>
+            <div class="row">
+                <label for="lower-case">
+                    <div class="left">
+                      Contains Lowercase
+                    </div>
+                </label>
+                <div class="right"><input type="checkbox" name="" id="lower-case" />
+                </div>
+            </div>
+            <div class="row">
+                <label for="numbers">
+                    <div class="left">
+                    Contains Numbers
+                    </div>
+                </label><div class="right1"><input type="checkbox" name="" id="numbers" />
+                </div>
+            </div>
+            <div class="row">
+                <label for="symbols">
+                    <div class="left">
+                    Contains Symbols
+                    </div>
+                </label>
+                <div class="right1">
+                    <input type="checkbox" name="" id="symbols" /></div>
+            </div>
+            <div class="row">
+                <button  id="btn">
+                    Generate
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+
+  <script>
+     
+const upperset="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowerset ="abcdefghijklmnopqrstuvwxyz";
+const numberset="1234567890";
+const symbolset="~@!#$%^&*()_+/";
+
+const passbox=document.querySelector("#pass-box");  
+const totalChar=document.querySelector("#total-char");
+const upperInput=document.querySelector("#upper-case");
+const lowerInput=document.querySelector("#lower-case") ;
+const numberInput=document.querySelector("#numbers");
+const symbolInput=document.querySelector("#symbols");    
+
+const getRandomdata = (dataset) => {
+  return dataset[Math.floor(Math.random()*dataset.length)]
+}
+
+const generatePassword=(password ="") => {
+  if(upperInput.checked){
+    password +=getRandomdata(upperset)
+  }
+if(lowerInput.checked){
+    password +=getRandomdata(lowerset)
+  }
+  if(numberInput.checked){
+    password +=getRandomdata(numberset)
+  }
+  if(symbolInput.checked){
+    password +=getRandomdata(symbolset)
+  }
+console.log(password)
+}
+  document.querySelector("#btn").addEventListener(
+      "click",
+      function(){
+   generatePassword();
+        
+      }
+   )
+ 
+  
+  
+</script>
+</body>
+
+</html>
