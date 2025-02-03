@@ -65,20 +65,25 @@
 
   <script>
      
+<script>
+     
 const upperset="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const lowerset ="abcdefghijklmnopqrstuvwxyz";
 const numberset="1234567890";
 const symbolset="~@!#$%^&*()_+/";
 
-const passbox=document.querySelector("#pass-box");  
+
 const totalChar=document.querySelector("#total-char");
 const upperInput=document.querySelector("#upper-case");
 const lowerInput=document.querySelector("#lower-case") ;
 const numberInput=document.querySelector("#numbers");
-const symbolInput=document.querySelector("#symbols");    
+const symbolInput=document.querySelector("#symbols"); 
+let randomData=document.getElementById('pass-box');    
 
 const getRandomdata = (dataset) => {
-  return dataset[Math.floor(Math.random()*dataset.length)]
+  let a= dataset[Math.floor(Math.random()*dataset.length)]
+  console.log(a);
+  randomData.value+=a;
 }
 
 const generatePassword=(password ="") => {
@@ -94,7 +99,8 @@ if(lowerInput.checked){
   if(symbolInput.checked){
     password +=getRandomdata(symbolset)
   }
-console.log(password)
+
+  
 }
   document.querySelector("#btn").addEventListener(
       "click",
@@ -104,8 +110,6 @@ console.log(password)
       }
    )
  
-  
-  
 </script>
 </body>
 
